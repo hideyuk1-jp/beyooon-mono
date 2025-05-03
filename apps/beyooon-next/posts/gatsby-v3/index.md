@@ -1,7 +1,7 @@
 ---
 title: Gatsby v3に移行しました
-date: 2021-05-04T21:00:00+09:00
-update: 2021-05-04T21:00:00+09:00
+createdAt: 2021-05-04T21:00:00+09:00
+updatedAt: 2021-05-04T21:00:00+09:00
 description: 遅ればせながらこのサイトをGatsby v3に移行しました。
 category: Dev
 tags: [Gatsby, TypeScript]
@@ -94,12 +94,8 @@ gatsby-config.jsを修正
 
 ```js
 module.exports = {
-  plugins: [
-    `gatsby-plugin-image`,
-    `gatsby-plugin-sharp`,
-    `gatsby-transformer-sharp`,
-  ],
-}
+  plugins: [`gatsby-plugin-image`, `gatsby-plugin-sharp`, `gatsby-transformer-sharp`],
+};
 ```
 
 移行用のコマンドが用意されているので実行。
@@ -177,8 +173,8 @@ $ yarn remove emotion-theming
 src/types に emotion.d.ts を追加。
 
 ```tsx
-import '@emotion/react'
-import { Theme as MyTheme} from './index'
+import '@emotion/react';
+import { Theme as MyTheme } from './index';
 
 declare module '@emotion/react' {
   export interface Theme extends MyTheme {}
@@ -225,9 +221,9 @@ module.exports = {
     'plugin:jsx-a11y/recommended',
     'plugin:@typescript-eslint/eslint-recommended',
     'plugin:prettier/recommended',
--   'prettier/@typescript-eslint',
--   'prettier/react',
-+   'prettier',
+    -'prettier/@typescript-eslint',
+    -'prettier/react',
+    +'prettier',
   ],
   // 中略
 };

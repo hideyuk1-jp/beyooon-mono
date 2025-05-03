@@ -1,7 +1,7 @@
 ---
 title: NuxtのSSGで一部のページのルートが生成されない
-date: 2021-05-05T14:00:00+09:00
-update: 2021-05-05T14:00:00+09:00
+createdAt: 2021-05-05T14:00:00+09:00
+updatedAt: 2021-05-05T14:00:00+09:00
 description: 副業で Nuxt を初めて使って SSG することがあり少しハマったのでメモ。
 category: Dev
 tags: [Nuxt, SSG]
@@ -18,7 +18,7 @@ version
 {
   "dependencies": {
     "@nuxt/content": "^1.13.1",
-    "nuxt": "^2.14.12",
+    "nuxt": "^2.14.12"
   }
 }
 ```
@@ -41,10 +41,10 @@ version
 
 やってることは
 
-| ルート | vue ファイル |  |
-| --- | --- | --- |
-| / | src/pages/index.vue | `src/content/post/` 配下の json を nuxt/content を使って全て取得して一覧表示 |
-| /post/[slug] | src/pages/post/_slug.vue | `src/content/post/[slug].json` を nuxt/content を使って取得して詳細表示 |
+| ルート       | vue ファイル              |                                                                              |
+| ------------ | ------------------------- | ---------------------------------------------------------------------------- |
+| /            | src/pages/index.vue       | `src/content/post/` 配下の json を nuxt/content を使って全て取得して一覧表示 |
+| /post/[slug] | src/pages/post/\_slug.vue | `src/content/post/[slug].json` を nuxt/content を使って取得して詳細表示      |
 
 という感じのオーソドックスな SSG のプロジェクトだと思います。
 
@@ -104,14 +104,12 @@ export default {
   generate: {
     dir: 'public',
     async routes() {
-      const { $content } = require('@nuxt/content')
-      const files = await $content('post')
-        .only(['slug'])
-        .fetch()
-      return files.map(file => `/post/${file.slug}`)
-    }
+      const { $content } = require('@nuxt/content');
+      const files = await $content('post').only(['slug']).fetch();
+      return files.map((file) => `/post/${file.slug}`);
+    },
   },
-}
+};
 ```
 
 シンプルにルートの文字列が入った配列を設定しているだけですね。
@@ -121,9 +119,9 @@ export default {
 ```js
 export default {
   generate: {
-    crawler: false
-  }
-}
+    crawler: false,
+  },
+};
 ```
 
 ## 最後に
