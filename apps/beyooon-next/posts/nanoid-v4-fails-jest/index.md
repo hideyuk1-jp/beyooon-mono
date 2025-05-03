@@ -1,7 +1,7 @@
 ---
 title: nanoid v4 を使ったら jest が通らなくなった
-date: 2022-11-27T23:47:00+09:00
-update: 2022-11-27T23:47:00+09:00
+createdAt: 2022-11-27T23:47:00+09:00
+updatedAt: 2022-11-27T23:47:00+09:00
 description: nanoid v4 を使ったら jest のテストが落ちるようになってしまったため対応しました。
 category: Dev
 tags: [jest]
@@ -10,7 +10,7 @@ image: ./thumbnail.jpg
 
 最近、プロダクトに nanoid を新規インストールすることがあったのですが、その際に nanoid を使っている部分の jest のテストが落ちるようになってしまったため対応しました。
 
-------
+---
 
 ## バージョンとエラーメッセージ
 
@@ -69,7 +69,6 @@ modules.exports = {
 これで jest が通るようになりました。
 
 ちなみに同じように CJS 対応していないライブラリが他にも出てきた場合は以下のように記述することで対応できます。
-
 
 ```js:title=jest.config.js
 modules.exports = {

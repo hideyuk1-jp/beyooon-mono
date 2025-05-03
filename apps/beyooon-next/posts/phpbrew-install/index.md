@@ -1,7 +1,7 @@
 ---
 title: phpbrew のインストールでエラー
-date: 2021-06-12T9:00:00+09:00
-update: 2021-06-12T9:00:00+09:00
+createdAt: 2021-06-12T9:00:00+09:00
+updatedAt: 2021-06-12T9:00:00+09:00
 description: phpbrew のインストールでエラーになったためメモ書き。
 category: Dev
 tags: [phpbrew]
@@ -118,7 +118,7 @@ Build finished: 9.6 minutes.
 Installing...
 ---> Creating php-fpm.conf
 ---> Creating php.ini
----> Copying /Users/hogehoge/.phpbrew/build/php-7.4.4/php.ini-development 
+---> Copying /Users/hogehoge/.phpbrew/build/php-7.4.4/php.ini-development
 ---> Found date.timezone is not set, patching...
 Initializing pear config...
 config-set succeeded
